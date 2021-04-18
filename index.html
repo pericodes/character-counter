@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- metaTags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="author" content="Pericodes" />
+    <meta name="robots" content="index, follow"/>
+    <meta http-equiv="expires" content="86400"/>
+    
+	<title>Remove Duplicates</title>
+	<meta name="description" content="This is a online open source secure password generator. Check the code on GitGub"/>
+    <meta name="keywords" content="Password Generator, Secure Password Generator"/>
+    
+    <link rel="alternate" hreflang="x-default" href="" />
+
+    <!-- CSS only -->
+    <link href="asserts/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- JavaScript Bundle with Popper.js -->
+
+    <script src="asserts/js/bootstrap.min.js" ></script>
+
+</head>
+
+<body class="container ">
+	<div class="card card-body">
+        <div class="form-group">
+            <h1>Characters Counter</h1>
+          <textarea class="form-control" id="text-input" onkeyup="count()" rows="15" placeholder="Tap here your text"></textarea>
+        </div>
+        <div class="form-group d-flex justify-content-center mt-3">
+          <button type="button" class="btn btn-warning form-control" id="clearInput-button" onclick="clearInput()">Reset</button>
+        </div>
+        <section id="result" class="card-body">
+            <div class="form-group row">
+                <label for="characters" class="col-sm-3 col-form-label">Characters</label>
+                <div class="col-sm-3">
+                  <input type="text" readonly class="form-control" id="characters" value="0">
+                </div>
+                <label for="words" class="col-sm-3 col-form-label">Words</label>
+                <div class="col-sm-3">
+                  <input type="text" readonly class="form-control" id="words" value="0">
+                </div>
+              </div>
+              <div class="form-group row border-bottom pb-4">
+                  <label for="paragraphs" class="col-sm-3 col-form-label">Paragraphs</label>
+                <div class="col-sm-3">
+                  <input type="text" readonly class="form-control" id="paragraphs" value="0">
+                </div>
+                <label for="spaces" class="col-sm-3 col-form-label">Spaces</label>
+                <div class="col-sm-3">
+                  <input type="text" readonly class="form-control" id="spaces" value="0">
+                </div>
+              </div>
+              <div style="display: none;">
+                  <div class="row">
+                      <button type="button" class="btn btn-info col-12 dropdown-toggle mb-2" id="showStatistics-button" data-bs-toggle="collapse" data-bs-target="#statistics" aria-expanded="false" aria-controls="statistics">Show statistics</button>
+                      <div class="collapse card card-body col-12" id="statistics">
+                          <p>a = juña</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                      
+                      
+                  </div>
+              </div>
+        </section>
+    </div>
+	</main>
+	<footer class="card">
+		<section class="card-body" id="credits">
+			<h2>Credits: </h2>
+                   <p>Make with love by <a href="https://github.com/pericodes">Pericodes</a></p>
+		</section>
+	</footer>
+    <script type="text/javascript">
+        function reset() {
+            let text = document.getElementById('text-input').value = "";
+            count();
+        }
+        function count() {
+            let text = document.getElementById('text-input').value;
+            let characters = document.getElementById('characters');
+            let words = document.getElementById('words');
+            let paragraphs = document.getElementById('paragraphs');
+            let spaces = document.getElementById('spaces');
+            //console.log(characters);
+            //console.log(text.value);
+            characters.value = text.length;
+    
+            /* words */
+            let regex = /\w+/gm;
+            words.value = ((text || '').match(regex) || []).length;
+    
+            /* paragraphs */
+            regex = /(.+?\n\n|.+?$)/gm;
+            paragraphs.value = ((text || '').match(regex) || []).length;
+    
+            /* spaces */
+            regex = / /gm;
+            spaces. value = ((text || '').match(regex) || []).length;
+        }
+        function clearInput(){
+            let text = document.getElementById('text-input').value= "";
+
+        }
+    </script>
+</body>
+</html>
